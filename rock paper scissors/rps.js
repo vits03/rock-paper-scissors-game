@@ -1,0 +1,246 @@
+function playRound(playerSelection,computerSelection) {
+    console.log(playerSelection,computerSelection);
+    const choice = {"rock":"paper","scissors":"rock","paper":"scissors" };
+    if (choice[playerSelection]=== computerSelection) {
+       // alert(`winner is the computer who played ${computerSelection}`);
+        show_winner("computer");
+        update_score("computer");
+    }
+    else if (playerSelection===computerSelection)
+    {
+        //alert("ITS A TIE MOFO");
+        update_score();
+    }
+    else {
+        //alert(`winner is first player ${playerSelection}`);
+        show_winner("player");
+        update_score("player");
+    }
+
+}
+
+
+function show_winner(winner){
+    let player=document.getElementById("round-choice");
+    let computer=document.getElementById("round-choice_computer");
+   if (winner==="player"){
+       player.style.border="5px solid green";
+       computer.style.border="5px solid red"
+
+    }
+    else {
+        player.style.border="5px solid red";
+        computer.style.border="5px solid green"
+    }
+}
+function game(player){
+
+
+   show_computer_choice(choice_com);
+   playRound(player,choice_com);
+
+
+}
+
+function show_computer_choice(choice){
+    computer=document.getElementById("round-choice_computer");
+    if (choice === "rock"){
+         computer.className="rock-choice"
+    }
+   else if (choice==="paper")  {
+    computer.className="paper-choice"
+
+   }
+   else {
+    computer.className="scissors-choice"
+
+   }
+}
+
+function computer_choice()
+{
+   choice=Math.floor(Math.random()*3+1)
+   if (choice===1)
+   {
+      return "rock";}
+    else if (choice===2) {
+       return "paper"
+    }
+    else {
+        return "scissors"
+    }
+}
+ function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }  
+
+
+
+function reset_border(){
+    let player=document.getElementById("round-choice");
+    let computer=document.getElementById("round-choice_computer");
+    player.style.border="5px solid rgb(195, 160, 160)";
+    computer.style.border="5px solid rgb(195, 160, 160)";
+    
+    
+
+}
+
+
+ async function mainf(){
+   
+   // const round = document.getElementById("round");
+    
+            const rock = document.getElementById("rock");
+            rock.addEventListener("click", async function () { index++;
+            
+            reset_border();
+            const rocks = document.getElementById("round-choice");
+            rocks.className = 'rock-choice';
+            roll();
+            
+            await sleep(12250);
+            game("rock");
+           
+             });
+
+             const paper = document.getElementById("paper");
+             paper.addEventListener("click",async function () {
+               // window.location.reload();
+                index++;
+                reset_border();
+             const papers = document.getElementById("round-choice");
+             papers.className = 'paper-choice';
+             roll();
+             await sleep(12250);
+        
+             game("paper");
+             
+             });
+ 
+              const scissors = document.getElementById("scissors");
+             scissors.addEventListener("click",  async function () {index++;
+             reset_border();
+             const scissorss = document.getElementById("round-choice"); 
+             scissorss.className = 'scissors-choice';
+             roll();
+             await sleep(12250);
+              game("scissors");
+             
+             });
+    }
+    
+            sound=new Audio('spinning-prize-wheel-sound-effects.mp3');
+            sound.volume=0.3;
+
+    
+   
+   
+    
+ 
+  
+
+
+async function animate(ms,choice,i){
+    const rock= document.getElementById("rocks");
+    const paper= document.getElementById("papers");
+    const scissors= document.getElementById("scissorss");
+    console.log(choice,i);
+   
+        rock.style.border="4px solid rgb(240, 73, 73)";
+        if (((i !=5) && choice !== "rock" )|| ((i ===5) && choice !== "rock") || ((i<5) && choice == "rock"))
+        {   console.log(choice,i,i);
+             await sleep(ms);
+           
+           rock.style.border=" 4px solid rgb(221, 165, 165)";
+           paper.style.border="4px solid rgb(240, 73, 73)";
+           if (((i !=5) && choice !== "paper" )|| ((i ===5) && choice !== "paper")|| ((i<5) && choice == "paper")) {
+                await sleep(ms);
+                papers.style.border=" 4px solid rgb(221, 165, 165) ";
+                scissors.style.border="4px solid rgb(240, 73, 73)";
+                if (((i !=5) && choice !== "scissors" )|| ((i ===5) && choice !== "scissors")|| ((i<5) && choice == "scissors")){
+                await sleep(ms);
+                 scissors.style.border=" 4px solid rgb(221, 165, 165)";}}
+                 
+
+                }
+
+}
+     
+   
+    
+ async function roll(){
+    setTimeout(() => { sound_effect();  }, 3500);
+    let n=150; 
+    choice_com=  computer_choice();
+    for (let i=0;i<6;i++){
+    await sleep(1600);
+    animate(n,choice_com,i);
+    n+=100;
+    
+    
+}
+function sound_effect(){
+    sound.play();
+}
+}
+
+function main(){ 
+    index=0;
+    player_score=0
+    computer_score=0
+    mainf();
+    check=setInterval(verify,1000)
+}
+ function disable_btn( ) {
+     document.getElementById("rock").disabled=true;
+     document.getElementById("paper").disabled=true;
+     document.getElementById("scissors").disabled=true;
+ }
+
+function update_score(round_winner="tie") {
+        let status=document.getElementById("round-status");
+        if (round_winner==="player"){
+           player_score++;
+           status.style.color="green"
+           status.innerText=`You won round ${index}.`
+        }
+        else if (round_winner==="computer") {
+            computer_score++
+            status.style.color="red"
+            status.innerText=`You lost round ${index}`
+        }
+        else{
+            status.style.color="grey"
+            status.innerText=`Round ${index} is a TIE!`
+        }
+        document.getElementById("score").innerText=`${player_score}-${computer_score}`
+        if (index<5 )  {
+             document.getElementById("round").innerText=`Round ${index+1}`}
+        if (index===3) {
+            if (player_score > computer_score){
+                status.style.color="green"
+                status.innerText="YOU WON THE GAME!"
+            }
+            else  if (player_score<  computer_score) {
+                status.style.color="red"
+                status.innerText="YOU LOST THE GAME!"
+            }
+            else {
+                status.innerText="The Game resulted in a TIE!"
+            }
+        }
+}
+
+function verify(){
+    console.log(`${index}) is `);
+    if (index>2)
+    {
+      disable_btn()
+      clearInterval(check);
+     
+
+    }
+}
+
+main();

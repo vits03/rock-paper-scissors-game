@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body {
+    margin: 0px;
+    text-align: center;
+    background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    font-family:roboto; 
+}
+
+
+.main-container {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height:100vh;
+
+}
+.game-container {
+    display: flex;
+    padding:50px;
+    
+    justify-content: space-evenly;
+    align-items: center;
+
+    color:rgb(50, 50, 62);
+    background-color: rgba(243, 237, 237, 0.801);
+    border-radius: 25px;;
+
+}     
+.player-section,.computer-section{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+   
+}                                                                                                      
+
+.rock-choice {
+    
+     background-image: url('rock.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.paper-choice {
+    
+    background-image: url('paper.png');
+   background-size:contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   opacity: 1;
+ 
+}
+
+
+
+.scissors-choice {
+    
+    background-image: url('scissors.svg');
+   background-size:stretch;
+   background-repeat: no-repeat;
+   background-position: center;
+   opacity: 1;
+   
+}
+
+
+#round-choice,#round-choice_computer {
+    height:15vh;
+    width:10vw;
+    border:5px solid rgb(195, 160, 160);
+    border-radius: 15px;
+    transition:background-image 2s;
+} 
+
+
+.button-container {
+    display:flex;
+    gap:15px;
+}
+button {
+    height:13vh;
+    width:5.6vw;
+    border:4px solid rgb(221, 165, 165);
+    border-radius: 15px;
+    transition:border 0.5s, border-radius 0.4s;
+}
+
+.score-section {
+    align-self: flex-start;
+    gap:10px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+#score {
+    
+    font-size:35px;
+}
+.versus-text {
+    font-size:30px;
+    font-weight: 700;
+}
+.computer-name {
+    font-size:30px;
+}
+
+.player-name {
+    font-size:30px;
+}
+
+#rocks img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain;
+    
+}
+#rock img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain;
+}
+
+#paper img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain
+}
+
+#papers img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain
+}
+#scissors img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain;
+}
+
+#scissorss img{
+    width: 70%; /* or any custom size */
+    height: 70%; 
+    object-fit: contain;
+}
+
+button:hover {
+    opacity: 0.8;
+    border:4px solid rgb(240, 73, 73);
+    border-radius: 20px;
+}
+
+#rock:disabled{
+    opacity: 0.7;
+}
+#paper:disabled{
+    opacity: 0.7;
+}
+#scissors:disabled{
+    opacity: 0.7;
+}
