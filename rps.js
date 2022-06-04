@@ -217,7 +217,7 @@ function update_score(round_winner="tie") {
         document.getElementById("score").innerText=`${player_score}-${computer_score}`
         if (index<5 )  {
              document.getElementById("round").innerText=`Round ${index+1}`}
-        if (index===3) {
+        if (index===5) {
             if (player_score > computer_score){
                 status.style.color="green"
                 status.innerText="YOU WON THE GAME!"
@@ -234,7 +234,7 @@ function update_score(round_winner="tie") {
 
 function verify(){
     console.log(`${index}) is `);
-    if (index>2)
+    if (index>4)
     {
       disable_btn()
       clearInterval(check);
