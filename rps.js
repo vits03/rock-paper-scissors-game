@@ -33,11 +33,12 @@ function show_winner(winner){
         computer.style.border="5px solid green"
     }
 }
-function game(player){
-
-
+function game(player_choice){
+   
+   choice_com=  computer_choice();
+   console.log(choice_com);
    show_computer_choice(choice_com);
-   playRound(player,choice_com);
+   playRound(player_choice,choice_com);
 
 
 }
@@ -97,9 +98,9 @@ function reset_border(){
             reset_border();
             const rocks = document.getElementById("round-choice");
             rocks.className = 'rock-choice';
-            roll();
+            //roll();
             
-            await sleep(12250);
+            //await sleep(12250);
             game("rock");
            
              });
@@ -111,8 +112,8 @@ function reset_border(){
                 reset_border();
              const papers = document.getElementById("round-choice");
              papers.className = 'paper-choice';
-             roll();
-             await sleep(12250);
+             //roll();
+             //await sleep(12250);
         
              game("paper");
              
@@ -123,8 +124,8 @@ function reset_border(){
              reset_border();
              const scissorss = document.getElementById("round-choice"); 
              scissorss.className = 'scissors-choice';
-             roll();
-             await sleep(12250);
+             //roll();
+             //await sleep(12250);
               game("scissors");
              
              });
@@ -172,7 +173,7 @@ async function animate(ms,choice,i){
  async function roll(){
     setTimeout(() => { sound_effect();  }, 3500);
     let n=150; 
-    choice_com=  computer_choice();
+    
     for (let i=0;i<6;i++){
     await sleep(1600);
     animate(n,choice_com,i);
