@@ -107,7 +107,7 @@ function reset_border(){
 
              const paper = document.getElementById("paper");
              paper.addEventListener("click",async function () {
-               // window.location.reload();
+               
                 index++;
                 reset_border();
              const papers = document.getElementById("round-choice");
@@ -117,7 +117,7 @@ function reset_border(){
         
              game("paper");
              
-             });
+             });                                                                                
  
               const scissors = document.getElementById("scissors");
              scissors.addEventListener("click",  async function () {index++;
@@ -239,9 +239,28 @@ function verify(){
     {
       disable_btn()
       clearInterval(check);
+      play_again();
      
 
     }
 }
+
+
+function play_again() {
+    let container=document.getElementById("score-section");
+    let btn =document.createElement("button");
+    btn.className="play-again"
+    btn.innerHTML="Play again?";
+    btn.onclick=function() {
+       window.location.reload();
+    }
+    container.appendChild(btn);
+}
+
+
+
+
+
+
 
 main();
