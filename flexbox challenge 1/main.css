@@ -1,0 +1,87 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+    font-family: 'roboto';
+    font-size: 1.3rem;
+}
+.hero {
+    background-color: #23424A;
+   padding: 100px 0;
+    }
+.container {
+    width: 80%; 
+    max-width: 1100px;
+    margin:0 auto ;
+}
+
+.hero__text {
+    
+ width: 60%;
+   
+}
+.main-section {
+    
+}
+.text-container {
+   
+    display: flex;
+    
+    color: rgb(39, 35, 35);
+}
+.main-text{
+     width: 100%;
+}
+.main-text p{
+    
+}
+.hero__text h1{
+    color: white;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+}
+
+.hero__text p{
+    color: rgb(206, 198, 198);
+    font-family: 'Roboto';
+    margin-bottom: 50px;
+}
+
+.hero__text a{
+    display: inline-block;
+    color:#020505 ;
+    font-family: 'roboto';
+    font-weight: 900;
+    text-decoration: none;
+    background-color: #38CFD9;
+    padding: 1em 2em;
+    border-radius: 50px;
+}
+
+.main-text + .main-text {
+    margin-left:10px ;
+}
+
+footer {
+    width: 100%;
+    color: white;
+}
+.footer {
+    gap: 20px;
+    padding: 40px 30px;
+    text-align: center;
+   justify-content: center;
+    display: flex;
+    background-color:#136C72   ;
+}
+
+.footer-text {
+    max-width: 600px;
+}
