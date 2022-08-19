@@ -2,17 +2,17 @@ function playRound(playerSelection,computerSelection) {
     console.log(playerSelection,computerSelection);
     const choice = {"rock":"paper","scissors":"rock","paper":"scissors" };
     if (choice[playerSelection]=== computerSelection) {
-       // alert(`winner is the computer who played ${computerSelection}`);
+       
         show_winner("computer");
         update_score("computer");
     }
     else if (playerSelection===computerSelection)
     {
-        //alert("ITS A TIE MOFO");
+        
         update_score();
     }
     else {
-        //alert(`winner is first player ${playerSelection}`);
+      
         show_winner("player");
         update_score("player");
     }
@@ -90,7 +90,7 @@ function reset_border(){
 
  async function mainf(){
    
-   // const round = document.getElementById("round");
+   
     
             const rock = document.getElementById("rock");
             rock.addEventListener("click", async function () { index++;
@@ -98,9 +98,7 @@ function reset_border(){
             reset_border();
             const rocks = document.getElementById("round-choice");
             rocks.className = 'rock-choice';
-            //roll();
             
-            //await sleep(12250);
             game("rock");
            
              });
@@ -112,8 +110,7 @@ function reset_border(){
                 reset_border();
              const papers = document.getElementById("round-choice");
              papers.className = 'paper-choice';
-             //roll();
-             //await sleep(12250);
+          
         
              game("paper");
              
@@ -204,16 +201,21 @@ function update_score(round_winner="tie") {
         if (round_winner==="player"){
            player_score++;
            status.style.color="green"
-           status.innerText=`You won round ${index}.`
+           if (index<5 )  {
+           status.innerText=`You won round ${index}`}
         }
         else if (round_winner==="computer") {
             computer_score++
             status.style.color="red"
-            status.innerText=`You lost round ${index}`
+            if (index<5 )  {
+            status.innerText=`You lost round ${index}`}
         }
         else{
             status.style.color="grey"
-            status.innerText=`Round ${index} is a TIE!`
+            if (index<5 )  {
+            status.innerText=`Round ${index} is a TIE!`}
+            player_score++;
+            computer_score++;
         }
         document.getElementById("score").innerText=`${player_score}-${computer_score}`
         if (index<5 )  {
